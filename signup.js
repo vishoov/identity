@@ -8,6 +8,8 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
     const address = document.getElementById('address').value;
     const phone = document.getElementById('phone').value;
 
+    //error handling 
+
     try {
         const response = await fetch('http://localhost:3000/v1/signup', {
             method: 'POST',
@@ -17,6 +19,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
             body: JSON.stringify({ username, password, age, email, address, phone }),
         });
 
+        //if the response is ok->201, then the user is created
         if (response.ok) {
             const data = await response.json();
             console.log('Signup successful:', data);
@@ -37,3 +40,13 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         alert('An error occurred. Please try again.');
     }
 });
+
+
+
+// try{
+    // write something that MAY GIVE AN ERROR
+// }
+
+// catch(err){
+
+// }
